@@ -1,0 +1,70 @@
+<Application x:Class="ElitLauncher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Ultra Modern Dark Gaming Theme -->
+        <SolidColorBrush x:Key="BgRoot" Color="#0B0F19"/>
+        <SolidColorBrush x:Key="BgSidebar" Color="#111827"/>
+        <SolidColorBrush x:Key="BgCard" Color="#1F2937"/>
+        <SolidColorBrush x:Key="BgCardHover" Color="#374151"/>
+        
+        <SolidColorBrush x:Key="AccentPrimary" Color="#EF4444"/>
+        <SolidColorBrush x:Key="AccentPrimaryHover" Color="#F87171"/>
+        <SolidColorBrush x:Key="AccentGlow" Color="#4F46E5"/>
+        
+        <SolidColorBrush x:Key="TextMain" Color="#F9FAFB"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#9CA3AF"/>
+        <SolidColorBrush x:Key="BorderColor" Color="#374151"/>
+        <SolidColorBrush x:Key="SuccessColor" Color="#10B981"/>
+
+        <!-- Premium Button Style -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentPrimary}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextMain}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentPrimaryHover}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Sidebar Navigation Button Style -->
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2563EB"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextMain}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>
