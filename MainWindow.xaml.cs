@@ -70,11 +70,33 @@ namespace ElitLauncher
             {
                 AppendDiagnosticsLog("Sprawdzanie dostępności aktualizacji Launchera...");
 
+                AutoUpdater.CheckForUpdateEvent -= OnAutoUpdaterCheckForUpdate;
+                AutoUpdater.CheckForUpdateEvent += OnAutoUpdaterCheckForUpdate;
+
                 AutoUpdater.Start("https://raw.githubusercontent.com/ojandooo/elit-launcher/main/update.xml");
             }
             catch (Exception ex)
             {
                 AppendDiagnosticsLog($"Błąd sprawdzania aktualizacji: {ex.Message}");
+            }
+        }
+
+        private void OnAutoUpdaterCheckForUpdate(UpdateInfoEventArgs args)
+        {
+            if (args.Error != null)
+            {
+                AppendDiagnosticsLog($"Błąd pobierania update.xml: {args.Error.Message}");
+                return;
+            }
+
+            if (args.IsUpdateAvailable)
+            {
+                AppendDiagnosticsLog($"Wykryto nową wersję Launchera: {args.CurrentVersion}");
+                AutoUpdater.ShowUpdateForm(args);
+            }
+            else
+            {
+                AppendDiagnosticsLog("Launcher jest w najnowszej wersji.");
             }
         }
 
