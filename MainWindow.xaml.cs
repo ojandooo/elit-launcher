@@ -73,7 +73,7 @@ namespace ElitLauncher
                 AutoUpdater.CheckForUpdateEvent -= OnAutoUpdaterCheckForUpdate;
                 AutoUpdater.CheckForUpdateEvent += OnAutoUpdaterCheckForUpdate;
 
-                AutoUpdater.Start("https://raw.githubusercontent.com/ojandooo/elit-launcher/main/update.xml");
+                AutoUpdater.Start("https://raw.githubusercontent.com/ojandooo/elit-launcher/refs/heads/main/update.xml");
             }
             catch (Exception ex)
             {
