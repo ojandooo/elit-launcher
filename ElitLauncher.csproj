@@ -8,17 +8,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>ElitLauncher</AssemblyName>
     <RootNamespace>ElitLauncher</RootNamespace>
+    
+    <!-- Numer wersji aplikacji -->
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+
     <!-- Ikona pliku .exe po kompilacji -->
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoUpdater.NET.Official" Version="1.9.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Zmiana z None na Resource rozwiązuje problem z ładowaniem w WPF -->
     <Resource Include="logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
