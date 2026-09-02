@@ -3,5 +3,5 @@
     <version>1.0.1</version>
     <url>https://github.com/ojandooo/elit-launcher/releases/download/v1.0.1/ElitLauncher_Installer.exe</url>
     <changelog>https://github.com/ojandooo/elit-launcher/releases/tag/v1.0.1</changelog>
-    <mandatory minVersion="1.0.1">false</mandatory>
+    <mandatory>false</mandatory>
 </item>
