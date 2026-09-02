@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using AutoUpdaterDotNET;
 
 namespace ElitLauncher
 {
@@ -63,6 +64,20 @@ namespace ElitLauncher
             InitializeLauncherSubsystem();
         }
 
+        private void CheckForApplicationUpdates()
+        {
+            try
+            {
+                AppendDiagnosticsLog("Sprawdzanie dostępności aktualizacji Launchera...");
+
+                AutoUpdater.Start("https://raw.githubusercontent.com/ojandooo/elit-launcher/main/update.xml");
+            }
+            catch (Exception ex)
+            {
+                AppendDiagnosticsLog($"Błąd sprawdzania aktualizacji: {ex.Message}");
+            }
+        }
+
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left) this.DragMove();
@@ -80,6 +95,9 @@ namespace ElitLauncher
             try
             {
                 AppendDiagnosticsLog("Inicjalizacja Elit Launcher...");
+                
+                CheckForApplicationUpdates();
+
                 SetupHttpClientConfiguration();
                 LoadSettingsFromDisk();
                 PerformGameExecutableScan();
